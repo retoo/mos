@@ -74,7 +74,7 @@ class MosScaffoldGenerator < Rails::Generator::NamedBase
   protected
   
   def banner
-    "Usage: #{$0} resourcefulscaffold ModelName [field:type, field:type]"
+    "Usage: #{$0} mos_scaffold ModelName [field:type, field:type]"
   end
 
   def scaffold_views
