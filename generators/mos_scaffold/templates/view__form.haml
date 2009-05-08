@@ -1,7 +1,8 @@
 %table
   %tbody
 <%- for attribute in attributes -%>
-    %th
-      %label{:for => "<%= singular_name %>_<%= attribute.name %>"}=_"<%= attribute.column.human_name %>"
-    %td.<%= attribute.name %>= f.<%= attribute.field_type %> :<%= attribute.name %>
+    %tr
+      %th
+        %label{:for => "<%= singular_name %>_<%= attribute.name %>"}=_"<%= attribute.column.human_name %>"
+      %td.<%= attribute.name %>= f.<%= attribute.field_type %> :<%= attribute.name %>
 <% end -%>
