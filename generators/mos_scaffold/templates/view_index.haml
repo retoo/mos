@@ -1,13 +1,13 @@
-%h1=_"Listing <%= plural_name %>"
+%h1=_"<%= plural_name %>"
 
-%table
-  %theader
+%table.autolink
+  %thead
     %tr
 <% for attribute in attributes -%>
       %th.<%= attribute.name %>=_"<%= attribute.column.human_name %>"
 <% end -%>
       %th=_"Actions"
-  %theader
+  %tbody
     = render :partial => '<%= singular_name %>', :collection => current_objects
 
 = link_to _('New <%= singular_name %>'), new_object_path 
