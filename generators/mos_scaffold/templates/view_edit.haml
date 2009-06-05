@@ -4,7 +4,9 @@
 
 - form_for(:<%= singular_name %>, :url => object_url, :html => { :method => :put }) do |f|
   = render :partial => "form", :locals => {:f => f}
-  %p= submit_tag _("Update")
+
+  .buttons
+    %p= submit_tag _("Update")
 
 = link_to _('Show'), object_path
 |
