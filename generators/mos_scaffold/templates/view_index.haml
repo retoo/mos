@@ -10,9 +10,9 @@
   %tbody
     - current_objects.each do |<%= singular_name %>|
       %tr
-      <% for attribute in attributes -%>
+<% for attribute in attributes -%>
         %td.<%= attribute.name %>= h <%= singular_name %>.<%= attribute.name %>
-      <% end -%>
+<% end -%>
         %td
           = link_to _('Show'), object_path(<%= singular_name %>), :class => "autolink"
           |
