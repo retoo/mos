@@ -2,10 +2,6 @@
 
 = error_messages_for :<%= singular_name %>
 
-- form_for(:<%= singular_name %>, :url => objects_url) do |f|
-  = render :partial => "form", :locals => {:f => f}
-
-  .buttons
-    = submit_tag _("Create")
+= render :partial => "form", :locals => {:button => _("Create")}
 
 = link_to _('Back'), objects_path
