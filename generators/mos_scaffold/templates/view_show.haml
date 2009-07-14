@@ -2,8 +2,8 @@
 
 %div[current_object]
 <% for attribute in attributes -%>
-  %p.<%= attribute.name %>
-    %strong=_"<%= attribute.column.human_name %>"
+  %p
+    %strong= _"<%= model_name %>|<%= attribute.column.human_name %>"
     = h current_object.<%= attribute.name %>
 <% end -%>
 

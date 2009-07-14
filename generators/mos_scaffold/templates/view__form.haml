@@ -3,7 +3,7 @@
     %tbody
   <%- for attribute in attributes -%>
       %tr
-        %th= _"<%= attribute.column.human_name %>"
+        %th= _"<%= model_name %>|<%= attribute.column.human_name %>"
         %td= f.<%= attribute.field_type %> :<%= attribute.name %>
   <% end -%>
 
