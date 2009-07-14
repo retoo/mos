@@ -15,10 +15,6 @@
 <% end -%>
         %td
           = link_to _('Show'), object_path(<%= singular_name %>), :class => "autolink"
-          |
-          = link_to _('Edit'), edit_object_path(<%= singular_name %>)
-          |
-          = link_to _('Destroy'), object_path(<%= singular_name %>), :confirm => _('Really destroy <%= singular_name %>?'), :method => :delete
 
-
-= link_to _('New <%= singular_name %>'), new_object_path
+- if œ :<%= singular_name %>_mgt
+  = link_to _('New <%= singular_name %>'), new_object_path
