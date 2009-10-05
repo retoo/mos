@@ -7,9 +7,9 @@
     = h current_object.<%= attribute.name %>
 <% end -%>
 
-- if œ :<%= singular_name %>_mgt
+- if a? :<%= singular_name %>_mgt
   = link_to _('Edit'), edit_object_path
   |
   = link_to _('Destroy'), object_path, :confirm => _('Really destroy <%= singular_name %>?'), :method => :delete
   |
-= link_to _('Back'), objects_path
+= link_back objects_path

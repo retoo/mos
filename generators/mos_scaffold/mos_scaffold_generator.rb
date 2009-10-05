@@ -22,7 +22,7 @@ class MosScaffoldGenerator < Rails::Generator::NamedBase
       @controller_class_name = "#{@controller_class_nesting}::#{@controller_class_name_without_nesting}"
     end
   end
-  
+
   def manifest
     record do |m|
       # Check for class naming collisions.
@@ -43,6 +43,8 @@ class MosScaffoldGenerator < Rails::Generator::NamedBase
         m.template("view_#{action}.haml", File.join('app/views', controller_class_path, controller_file_name, "#{action}.html.haml"))
       end
 
+      m.template("view_items.haml", File.join('app/views', controller_class_path, controller_file_name, "_#{plural_name}.haml"))
+
       # Helper
       m.template('helper.rb', File.join('app/helpers', controller_class_path, "#{controller_file_name}_helper.rb"))
 
@@ -50,7 +52,7 @@ class MosScaffoldGenerator < Rails::Generator::NamedBase
       m.template('model.rb', File.join('app/models', class_path, "#{file_name}.rb"))
 
       unless options[:skip_migration]
-        m.migration_template('migration.rb', 'db/migrate', 
+        m.migration_template('migration.rb', 'db/migrate',
           :assigns => {
             :migration_name => "Create#{class_name.pluralize.gsub(/::/, '')}",
             :attributes     => attributes
@@ -59,7 +61,7 @@ class MosScaffoldGenerator < Rails::Generator::NamedBase
       end
 
       # Controller
-      m.template('controller.rb', File.join('app/controllers', controller_class_path, "#{controller_file_name}_controller.rb"))      
+      m.template('controller.rb', File.join('app/controllers', controller_class_path, "#{controller_file_name}_controller.rb"))
 
       # Tests
       m.template('functional_test.rb', File.join('test/functional', controller_class_path, "#{controller_file_name}_controller_test.rb"))
@@ -72,7 +74,7 @@ class MosScaffoldGenerator < Rails::Generator::NamedBase
   end
 
   protected
-  
+
   def banner
     "Usage: #{$0} mos_scaffold ModelName [field:type, field:type]"
   end
@@ -81,7 +83,7 @@ class MosScaffoldGenerator < Rails::Generator::NamedBase
     %w[ index show new edit _form ]
   end
 
-  def model_name 
+  def model_name
     class_name.demodulize
   end
 end

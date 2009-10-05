@@ -1,0 +1,15 @@
+%table.autolink
+  %thead
+    %tr
+<% for attribute in attributes -%>
+      %th=_"<%= model_name %>|<%= attribute.column.human_name %>"
+<% end -%>
+      %th=_"Actions"
+  %tbody
+    - current_objects.each do |<%= singular_name %>|
+      %tr
+<% for attribute in attributes -%>
+        %td= h <%= singular_name %>.<%= attribute.name %>
+<% end -%>
+        %td
+          = link_to _('Show'), object_path(<%= singular_name %>), :class => "autolink"

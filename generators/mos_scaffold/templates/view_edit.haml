@@ -2,8 +2,8 @@
 
 = error_messages_for :<%= singular_name %>
 
-= render :partial => "form", :locals => {:button => _("Edit")}
+= render :partial => "form"
 
 = link_to _('Show'), object_path
 |
-= link_to _('Back'), objects_path
+= link_back objects_path
